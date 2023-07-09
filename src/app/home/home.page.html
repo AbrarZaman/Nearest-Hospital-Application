@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Nearest Hospital App
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button expand="block" (click)="RouteToNextNearest()">Route To Next Nearest Hospital</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div #map id="map"></div>
+</ion-content>
+
+<ion-item>
+  <ion-label>Filter By Rating:</ion-label>
+  <ion-range 
+  aria-label="Custom range"
+  [min]="0"
+  [max]="5"
+  [value]="0"
+  [pin]="true"
+  [ticks]="true"
+  [snaps]="true" 
+  [(ngModel)]="ratingFilter" 
+  (ionChange)="filterHospitalsByRating(ratingFilter)">
+  <ion-label slot="start">0</ion-label>
+  <ion-label slot="end">5</ion-label>
+  </ion-range>
+</ion-item>
